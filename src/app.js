@@ -26,24 +26,24 @@ const closeicon = document.querySelector('.flip');
 const modal = document.getElementById('win-popup');
 
 // array for opened cards
-var openedCards = [];
+var cardFacedUp = [];
 
 
 // @description shuffles cards
 // @param {array}
 // @returns shuffledarray
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+function shuffle(arrCards) {
+    var currentIndex = arrCards.length, temp, index;
  
     while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
+        index = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
+        temp = arrCards[currentIndex];
+        arrCards[currentIndex] = arrCards[index];
+        arrCards[index] = temp;
     }
  
-    return array;
+    return arrCards;
 };
  
  
@@ -55,7 +55,7 @@ document.body.onload = startGame();
 function startGame(){
   
     // empty the openCards array
-    openedCards = [];
+    cardFacedUp = [];
  
     // shuffle deck
     cards = shuffle(cards);
@@ -92,13 +92,13 @@ var displayCard = function (){
 };
 
 
-// @description add opened cards to OpenedCards list and check if cards are match or not
+// @description add opened cards to faceup cards list and check if cards are match or not
 function cardOpen() {
-    openedCards.push(this);
-    var len = openedCards.length;
-    if(len === 2){
+    cardFacedUp.push(this);
+    const length = cardFacedUp.length;
+    if(length === 2){
         moveCounter();
-        if(openedCards[0].type === openedCards[1].type){
+        if(cardFacedUp[0].type === cardFacedUp[1].type){
             matched();
         } else {
             unmatched();
@@ -109,24 +109,24 @@ function cardOpen() {
 
 // @description when cards match
 function matched(){
-    openedCards[0].classList.add("match", "disabled");
-    openedCards[1].classList.add("match", "disabled");
-    openedCards[0].classList.remove("show", "open", "no-event");
-    openedCards[1].classList.remove("show", "open", "no-event");
-    openedCards = [];
+    cardFacedUp[0].classList.add("match", "disabled");
+    cardFacedUp[1].classList.add("match", "disabled");
+    cardFacedUp[0].classList.remove("show", "open", "no-event");
+    cardFacedUp[1].classList.remove("show", "open", "no-event");
+    cardFacedUp = [];
 }
 
 
 // description when cards don't match
 function unmatched(){
-    openedCards[0].classList.add("unmatched");
-    openedCards[1].classList.add("unmatched");
+    cardFacedUp[0].classList.add("unmatched");
+    cardFacedUp[1].classList.add("unmatched");
     disable();
     setTimeout(function(){
-        openedCards[0].classList.remove("show", "open", "no-event","unmatched");
-        openedCards[1].classList.remove("show", "open", "no-event","unmatched");
+        cardFacedUp[0].classList.remove("show", "open", "no-event","unmatched");
+        cardFacedUp[1].classList.remove("show", "open", "no-event","unmatched");
         enable();
-        openedCards = [];
+        cardFacedUp = [];
     },1100);
 }
 
