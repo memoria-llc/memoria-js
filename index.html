@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Memoria Concentration</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet prefetch">
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker" rel="stylesheet prefetch">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Memory Game</h1>
+        </header>
+
+        <section class="score-panel">
+        	<ul class="disply-stars">
+        		<li><i class="fa display-star"></i></li>
+        		<li><i class="fa display-star"></i></li>
+        		<li><i class="fa display-star"></i></li>
+        	</ul>
+
+        	<span class="game-moves">0</span> Move(s)
+
+            <div class="timer">
+            </div>
+
+            <div class="restart" onclick=startGame()>
+        		<i class="fa fa-repeat"></i>
+        	</div>
+        </section>
+
+        <ul class="deck" id="deck">
+            <li class="game-card" type="diamond">
+                <i class="fa fa-diamond"></i>
+            </li>
+            <li class="game-card" type="plane">
+                <i class="fa fa-paper-plane-o"></i>
+            </li>
+            <li class="game-card matched-card" type="anchor">
+                <i class="fa fa-anchor"></i>
+            </li>
+            <li class="game-card" type="bolt" >
+                <i class="fa fa-bolt"></i>
+            </li>
+            <li class="game-card" type="cube">
+                <i class="fa fa-cube"></i>
+            </li>
+            <li class="game-card matched-card" type="anchor">
+                <i class="fa fa-anchor"></i>
+            </li>
+            <li class="game-card" type="leaf">
+                <i class="fa fa-leaf"></i>
+            </li>
+            <li class="game-card" type="bicycle">
+                <i class="fa fa-bicycle"></i>
+            </li>
+            <li class="game-card" type="diamond">
+                <i class="fa fa-diamond"></i>
+            </li>
+            <li class="game-card" type="bomb">
+                <i class="fa fa-bomb"></i>
+            </li>
+            <li class="game-card" type="leaf">
+                <i class="fa fa-leaf"></i>
+            </li>
+            <li class="game-card" type="bomb">
+                <i class="fa fa-bomb"></i>
+            </li>
+            <li class="game-card open show" type="bolt">
+                <i class="fa fa-bolt"></i>
+            </li>
+            <li class="game-card" type="bicycle">
+                <i class="fa fa-bicycle"></i>
+            </li>
+            <li class="game-card" type="plane">
+                <i class="fa fa-paper-plane-o"></i>
+            </li>
+            <li class="game-card" type="cube">
+                <i class="fa fa-cube"></i>
+            </li>
+        </ul>
+
+        <div id="win-popup" class="overlay">
+            <div class="popup">
+                <h2>Congrats </h2>
+                <a class="flip" href=# >×</a>
+                <div class="content-1">
+                    Congratulations you win! 
+                </div>
+                <div class="content-2">
+                    <p>You made <span id=finalMove> </span> moves </p>
+                    <p>in <span id=totalTime> </span> </p>
+                    <p>Rating:  <span id=starRating></span></p>
+                </div>
+                <button id="play-again"onclick="playAgain()">
+                    click to play again </a>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <script src="src/app.js"></script>
+</body>
+</html>
