@@ -12,7 +12,7 @@ body {
 .memory-game {
   grid-gap: 10px 10px;
   width: 800px;
-  height: 600px;
+  height: 570px;
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
